@@ -17,10 +17,13 @@ ReactDOM.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 */
-import PoiViewPage from './pages/poiViewPage'
+
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import PoisPage from "./pages/poisPage";
+import PoiViewPage from './pages/poiViewPage'
+
 
 const images = [
   "/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg",
@@ -28,6 +31,8 @@ const images = [
   "/2iGN0aKHJYD0xQydlfuCUAcgNbO.jpg",
   "/rjBwhsOzHKUw2NIOrE7aMqjfe6s.jpg",
 ]
+
+/*
 
 const sample = {
   category: {
@@ -62,6 +67,19 @@ const App = () => {
   return (
       //<PoisPage pois={pois} />
       <PoiViewPage poi={sample} images={images} />
+  );
+};
+*/
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route path="/pois/:id" component={PoiViewPage} />
+        <Route path="/" component={PoisPage} />
+        <Redirect from="*" to="/" />
+      </Switch>
+    </BrowserRouter>
   );
 };
 

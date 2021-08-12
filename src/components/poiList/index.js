@@ -19,9 +19,10 @@ const PoiList = (props) => {
         { field: 'col2', headerName: 'INTRO', width: 150 },
       ];
 
-     let poiCards = props.pois.map((m) => (
-        <Grid key={m.id} item xs={12} sm={6} md={4} lg={3} xl={2}>
-      <Poi key={m.id} poi={m} />
+      // using index as key, not recommended https://reactjs.org/docs/lists-and-keys.html#keys visitied 12Aug21
+     let poiCards = props.pois.map((m, index) => (
+        <Grid key={index} item xs={12} sm={6} md={4} lg={3} xl={2}>
+      <Poi key={index} poi={m} />
     </Grid>
   ));
   return poiCards;
