@@ -17,10 +17,17 @@ ReactDOM.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 */
-
+import PoiViewPage from './pages/poiViewPage'
 import React from "react";
 import ReactDOM from "react-dom";
 import PoisPage from "./pages/poisPage";
+
+const images = [
+  "/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg",
+  "/v1QQKq8M0fWxMgSdGOX1aCv8qMB.jpg",
+  "/2iGN0aKHJYD0xQydlfuCUAcgNbO.jpg",
+  "/rjBwhsOzHKUw2NIOrE7aMqjfe6s.jpg",
+]
 
 const sample = {
   category: {
@@ -53,7 +60,8 @@ const pois = [sample, sample, sample, sample, sample, sample, sample];
 
 const App = () => {
   return (
-      <PoisPage pois={pois} />
+      //<PoisPage pois={pois} />
+      <PoiViewPage poi={sample} images={images} />
   );
 };
 
