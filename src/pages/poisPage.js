@@ -18,7 +18,26 @@ const PoiListPage = (props) => {
   const classes = useStyles();
   const [pois, setPois] = useState( [] );
   const [user, setUser] = useState({ username: null, password: null });
+  const [nameFilter, setNameFilter] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState("0");
   //const pois = props.pois;
+
+  console.log(categoryFilter);
+  const categoryId = categoryFilter;
+  console.log(categoryId);
+
+  let displayedPois = pois
+    .filter((m) => {
+      return m.name.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
+    })
+    .filter((m) => {
+      return categoryId !== 0 ? m.category._id.includes(categoryId) : true;
+    });
+
+  const handleChange = (type, value) => {
+    if (type === "name") setNameFilter(value);
+    else setCategoryFilter(value);
+  };
 
 useEffect(() => {
   async function fetchData() {
@@ -41,7 +60,9 @@ useEffect(() => {
   //pois.push(poislist.data[2]);
   console.log("just before pois");
   console.log(poislist.data[0]);
-}
+  const categories = await axios.get(baseurl + '/api/categories');
+  console.log(categories.data);
+  }
 fetchData();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -53,9 +74,13 @@ fetchData();
       </Grid>
       <Grid item container spacing={5}>
         <Grid key="find" item xs={12} sm={6} md={4} lg={3} xl={2}>
-          <FilterCard />
+        <FilterCard
+      onUserInput={handleChange}
+      titleFilter={nameFilter}
+      genreFilter={categoryFilter}
+    />
         </Grid>
-        <PoiList pois={pois}></PoiList>
+        <PoiList pois={displayedPois}></PoiList>
       </Grid>
     </Grid>
   );
