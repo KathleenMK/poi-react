@@ -33,11 +33,8 @@ const PoiHeader = (props) => {
       <Typography variant="h4" component="h3">
         {poi.name}
         <a href={poi.homepage}>
-          <HomeIcon color="primary" />
         </a>
-        <br />
-        <span className={classes.tagLine}>{`   "${poi.shortdesc}"`} </span>
-      </Typography>
+       </Typography>
       <IconButton aria-label="go forward">
         <ArrowForwardIcon color="primary" fontSize="large" />
       </IconButton>

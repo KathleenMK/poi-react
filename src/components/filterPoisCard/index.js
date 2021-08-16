@@ -65,11 +65,12 @@ export default function FilterMoviesCard(props) {
           </Select>
         </FormControl>
       </CardContent>
-      <CardMedia
+     {/* <CardMedia
         className={classes.media}
         image={img}
         title="Filter"
       />
+     
       <CardContent>
         <Typography variant="h5" component="h1">
           <SearchIcon fontSize="large" />
@@ -77,6 +78,8 @@ export default function FilterMoviesCard(props) {
           <br />
         </Typography>
       </CardContent>
+      */}
     </Card>
+    
   );
 }
