@@ -6,6 +6,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
+import MenuList from "@material-ui/core/MenuList";
 import TextField from "@material-ui/core/TextField";
 import SearchIcon from "@material-ui/icons/Search";
 import FormControl from "@material-ui/core/FormControl";
@@ -33,27 +34,11 @@ export default function FilterMoviesCard(props) {
   const classes = useStyles();
   const [categories, setCategories] = useState([{_id:'0', name:"All"}])
 
-  /* const categories = [
-    {id: 1, name: "Munster"},
-    {id: 2, name: "Leinster"},
-    {id: 3, name: "Other"}
-  ]*/
-
-  useEffect(() => {
+   useEffect(() => {
     async function fetchData() {
-      const email = "kate@gmail.com";
-      const password = "KateKate1";
-      const response = await axios.post(baseurl+'/api/users/authenticate', {email, password});
-      axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.token;
-      console.log(response);
-    //console.log(response.data.firstName);
-    //const test = response.data.firstName;
-    //const username = response.firstName;
-      const categorieslist = await axios.get(baseurl + '/api/categories');
-    //  console.log(categorieslist.data);
-      setCategories([categories[0],...categorieslist.data]);
-    //  console.log(categories);
-    }
+    const categorieslist = await axios.get(baseurl + '/api/categories');
+    setCategories([categories[0],...categorieslist.data]);
+     }
     fetchData();
 
   });
@@ -61,7 +46,7 @@ export default function FilterMoviesCard(props) {
   const handleChange = (e, type, value) => {
     e.preventDefault()
     props.onUserInput(type, value)
-    // Completed later
+    
   };
   const handleTextChange = e => {
     handleChange(e, "name", e.target.value)
@@ -75,9 +60,9 @@ export default function FilterMoviesCard(props) {
   return (
     <Card className={classes.root} variant="outlined">
       <CardContent>
-        <Typography variant="h5" component="h1">
-          <SearchIcon fontSize="large" />
-          Filter by category
+        <Typography variant="h6" component="h1">
+          <SearchIcon fontSize="small" />
+          Search by name or Filter by category
         </Typography>
         <TextField
            className={classes.formControl}

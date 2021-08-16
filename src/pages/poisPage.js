@@ -20,8 +20,7 @@ const PoiListPage = (props) => {
   const [user, setUser] = useState({ username: null, password: null });
   const [nameFilter, setNameFilter] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("0");
-  //const pois = props.pois;
-
+ 
   console.log(categoryFilter);
   const categoryId = categoryFilter;
   console.log(categoryId);
@@ -41,25 +40,18 @@ const PoiListPage = (props) => {
 
 useEffect(() => {
   async function fetchData() {
-  const email = "kate@gmail.com";
-  const password = "KateKate1";
+  const email = "kate@gmail.com"; //needs to be replaced with user input values
+  const password = "KateKate1"; //needs to be replaced with user input values
   const response = await axios.post(baseurl+'/api/users/authenticate', {email, password});
-  axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.token;
+  axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.token; 
+  localStorage.poi = response.data.token; // JWT added to local storage, to be used elsewhere, method as per Svelte app
   console.log(response);
-//console.log(response.data.firstName);
-//const test = response.data.firstName;
-//const username = response.firstName;
+    // not using User currently however may in future
   setUser({ username:response.data.firstName, password});
   const poislist = await axios.get(baseurl+'/api/pois');
-  console.log("just before poislist");
-  console.log(poislist.data.length);
   console.log(poislist.data);
   setPois(poislist.data);
   console.log(pois);
-  //setPois([poislist.data[1]]);
-  //pois.push(poislist.data[2]);
-  console.log("just before pois");
-  console.log(poislist.data[0]);
   const categories = await axios.get(baseurl + '/api/categories');
   console.log(categories.data);
   }

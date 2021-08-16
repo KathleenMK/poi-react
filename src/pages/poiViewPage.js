@@ -9,6 +9,8 @@ import axios from "axios";
 
 const baseurl = "https://lit-hamlet-10675.herokuapp.com";
 
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -22,36 +24,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const PoiViewPage = (props) => {
+  axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.poi;  // login JWT used in following axios calls
   const classes = useStyles();
   const { id } = props.match.params;  //allows the component to extract the id from the browser's parameterized URL address.
   const [poi, setPoi] = useState(null);
   const [user, setUser] = useState({ username: null, password: null });
-  //const [images, setImages] = useState([]);
-  //const poi = props.poi;
-  //const images = props.images;
-
-  useEffect(() => {
+ 
+ useEffect(() => {
     async function fetchData() {
-    const email = "kate@gmail.com";
-    const password = "KateKate1";
-    const response = await axios.post(baseurl+'/api/users/authenticate', {email, password});
-    axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.token;
-    console.log(response);
-  //console.log(response.data.firstName);
-  //const test = response.data.firstName;
-  //const username = response.firstName;
-    setUser({ username:response.data.firstName, password});
     const poiOne = await axios.get(baseurl+'/api/pois/'+id);
-    console.log("just before poi");
-    //console.log(poislist.data.length);
     console.log(poiOne.data);
     setPoi(poiOne.data.poi);  //also getting weather
-    //console.log(pois);
-    //setPois([poislist.data[1]]);
-    //pois.push(poislist.data[2]);
-    //console.log("just before pois");
-    //console.log(poislist.data[0]);
-  }
+     }
   fetchData();
     // eslint-disable-next-li
   }, []);
