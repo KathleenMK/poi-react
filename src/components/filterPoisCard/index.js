@@ -1,12 +1,10 @@
 import React, {useState, useEffect} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
-import MenuList from "@material-ui/core/MenuList";
 import TextField from "@material-ui/core/TextField";
 import SearchIcon from "@material-ui/icons/Search";
 import FormControl from "@material-ui/core/FormControl";
@@ -75,7 +73,8 @@ export default function FilterMoviesCard(props) {
         />
         <FormControl className={classes.formControl}>
           <InputLabel id="category-label">Category</InputLabel>
-          <Select
+          <Select                               // https://material-ui.com/api/select/ visited 16Aug21
+            defaultValue = {categories[0]._id}  //to handle the warning: SelectInput.js:342 Material-UI: You have provided an out-of-range value `undefined` for the select component.
             labelId="category-label"
             id="category-select"
             value={props.categoryFilter}

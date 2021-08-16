@@ -21,9 +21,9 @@ const PoiListPage = (props) => {
   const [nameFilter, setNameFilter] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("0");
  
-  console.log(categoryFilter);
+  //console.log(categoryFilter);
   const categoryId = categoryFilter;
-  console.log(categoryId);
+  //console.log(categoryId);
 
   let displayedPois = pois
     .filter((m) => {
@@ -51,7 +51,6 @@ useEffect(() => {
   const poislist = await axios.get(baseurl+'/api/pois');
   console.log(poislist.data);
   setPois(poislist.data);
-  console.log(pois);
   const categories = await axios.get(baseurl + '/api/categories');
   console.log(categories.data);
   }
