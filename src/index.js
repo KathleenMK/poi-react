@@ -23,16 +23,27 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import PoisPage from "./pages/poisPage";
 import PoiViewPage from './pages/poiViewPage'
+import LoginPage from './pages/loginPage'
+import PrivateRoute from "./privateRoute";
+import AuthHeader from "./authHeader";
+import AuthProvider from "./contexts/authContext";
+import { Link } from "react-router-dom";
+import PoiListPage from "./pages/poisPage";
 
 
 const App = () => {
   return (
     <BrowserRouter>
+     <AuthProvider>
+        <AuthHeader />
       <Switch>
-        <Route path="/pois/:id" component={PoiViewPage} />
-        <Route path="/" component={PoisPage} />
+      <PrivateRoute exact path="/pois" component={PoiListPage} />
+       <PrivateRoute exact path="/pois/:id" component={PoiViewPage} />
+       <Route exact path="/" component={LoginPage} />
+       <Route path="/login" component={LoginPage} />
         <Redirect from="*" to="/" />
       </Switch>
+      </AuthProvider>
     </BrowserRouter>
   );
 };
