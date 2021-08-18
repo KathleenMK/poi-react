@@ -67,7 +67,7 @@ export default function FilterMoviesCard(props) {
            id="filled-search"
            label="Search field"
            type="search"
-           value={props.titleFilter}
+           value={props.nameFilter}
            variant="filled"
            onChange={handleTextChange}
         />
