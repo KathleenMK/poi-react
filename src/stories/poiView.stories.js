@@ -1,6 +1,6 @@
 import React from "react";
 import PoiView from "../components/poiView";
-import SampleData from "./sampleData";
+import SampleData from "./samplePoi";
 
 export default {
   title: "Poi View Page/PoiView",

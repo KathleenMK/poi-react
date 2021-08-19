@@ -1,6 +1,6 @@
 import React from "react";
 import PoiHeader from "../components/headerPoi";
-import SamplePoi from "./sampleData";
+import SamplePoi from "./samplePoi";
 
 export default {
   title: "Poi View Page/PoiHeader",
