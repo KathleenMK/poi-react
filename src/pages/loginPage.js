@@ -36,12 +36,12 @@ const LoginPage = (props) => {
  
     // Set 'from' to path where browser is redirected after a successful login.
   // Either / or the protected path user tried to access.
-  const { from } = props.location.state || { from: { pathname: "/" } };
-  console.log(from);
+  //const { from } = props.location.state || { from: { pathname: "/" } };
+  //console.log(from);
  
  
   return context.isAuthenticated ? (
-    <Redirect to={from} />
+    <Redirect to={"/pois"} />
   ) : (
     <>
       <h2>Login page</h2>

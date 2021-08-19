@@ -5,7 +5,7 @@ import { AuthContext } from "./contexts/authContext";
 const BaseAuthHeader = (props) => {
   const context = useContext(AuthContext);
   console.log(context.isAuthenticated)
-  console.log(context.user)
+  //console.log(context.user)
   //console.log(context.user.username)
   const { history } = props;
 

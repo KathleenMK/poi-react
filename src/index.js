@@ -29,6 +29,7 @@ import AuthHeader from "./authHeader";
 import AuthProvider from "./contexts/authContext";
 import { Link } from "react-router-dom";
 import PoiListPage from "./pages/poisPage";
+import HomePage from "./pages/homePage";
 
 
 const App = () => {
@@ -39,9 +40,9 @@ const App = () => {
       <Switch>
       <PrivateRoute exact path="/pois" component={PoiListPage} />
        <PrivateRoute exact path="/pois/:id" component={PoiViewPage} />
-       <Route exact path="/" component={LoginPage} />
-       <Route path="/login" component={LoginPage} />
-        <Redirect from="*" to="/" />
+        <Route exact path="/login" component={LoginPage} />
+        <Route path="/" component={HomePage} />
+         <Redirect from="*" to="/" />
       </Switch>
       </AuthProvider>
     </BrowserRouter>

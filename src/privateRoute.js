@@ -8,8 +8,8 @@ const PrivateRoute = (props) => {
   const context = useContext(AuthContext);
    //Destructure props from <privateRoute>
   const { component: Component, ...rest } = props;
-   console.log(props.location)
-   console.log(rest)
+   //console.log(props.location)
+   //console.log(rest)
   return context.isAuthenticated ? (
     //<Route path="/" component={PoisPage} />
     <Route {...rest} render={(props) => <Component {...props} />} />
@@ -17,8 +17,8 @@ const PrivateRoute = (props) => {
   ) : (
     <Redirect
       to={{
-        pathname: "/login",
-        state: { from: props.location },
+        pathname: "/",
+        //state: { from: props.location },
       }}
     />
   );
