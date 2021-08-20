@@ -7,6 +7,8 @@ import { TextField } from '@material-ui/core';  //https://material-ui.com/api/te
 //import AuthHeader from "./authHeader";
 //import AuthProvider from "./authContext";
 import Button from '@material-ui/core/Button';
+import LoginForm from "../components/loginForm";
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles({
     root: {
@@ -15,22 +17,15 @@ const useStyles = makeStyles({
   });
 
 const LoginPage = (props) => {
-    const classes = useStyles();
+  const classes = useStyles();
   const context = useContext(AuthContext);
+  const [email] = useState('');
+  const [password] = useState('');
 
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  // https://www.w3schools.com/react/react_forms.asp
-  // https://material-ui.com/components/text-fields/
-  // used this article's example as a basis for the login form:
-  // https://levelup.gitconnected.com/create-a-signup-page-with-react-and-material-ui-9b203d18cf3f visited 18Aug21
-  const handleSubmit = e => {
-    e.preventDefault();
-    console.log(email, password);
-    context.authenticate(email, password);
+  
+  const handleSubmit = (emailEntered,passwordEntered) => {
+    context.authenticate(emailEntered, passwordEntered);
+    //context.authenticate(email, password);
     //context.authenticate("kate@gmail.com", "KateKate1");
     }
  
@@ -46,30 +41,15 @@ const LoginPage = (props) => {
     <>
       <h2>Login page</h2>
       <p>You must log in to view the protected pages </p>
-     
-       <form className={classes.root} onSubmit={handleSubmit}>
-         <TextField
-        label="Email"
-        variant="filled"
-        type="email"
-        required
-        value={email}
-        onChange={e => setEmail(e.target.value)}
+    <Grid container spacing={1}>
+     <Grid item xs={2}>
+      <LoginForm
+        onUserSubmit={handleSubmit}
+        emailEntered={email}
+        passwordEntered={password}
       />
-      <TextField
-        label="Password"
-        variant="filled"
-        type="password"
-        required
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-      />
-      <div>
-       <Button type="submit" variant="contained" color="primary">
-          Login
-        </Button>
-      </div>
-    </form>
+      </Grid>
+    </Grid>
     </>
   );
 };
