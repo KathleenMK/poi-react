@@ -1,59 +1,80 @@
 import React from "react";
-import Chip from "@material-ui/core/Chip";
 import Paper from "@material-ui/core/Paper";
-import AccessTimeIcon from "@material-ui/icons/AccessTime";
-import MonetizationIcon from "@material-ui/icons/MonetizationOn";
-import StarRate from "@material-ui/icons/StarRate";
-import NavigationIcon from "@material-ui/icons/Navigation";
-import Fab from "@material-ui/core/Fab";
+//import Fab from "@material-ui/core/Fab";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    justifyContent: "center",
-    flexWrap: "wrap",
-    listStyle: "none",
-    padding: theme.spacing(1.5),
-    margin: 0,
+    padding: "20px",
+    variant:'outlined'
   },
-  chip: {
-    margin: theme.spacing(0.5),
-  },
+  img: {
+    maxHeight: 500,
+  }
+ /*fab not currently used
   fab: {
     position: "fixed",
-    bottom: theme.spacing(2),
+       bottom: theme.spacing(2),
     right: theme.spacing(2),
   },
+  */
 }));
 
 const PoiView = ( props) => {
   const classes = useStyles();
   const poi = props.poi
 
+  //https://material-ui.com/api/typography/
+  //https://material-ui.com/api/grid/
+
   return (
     <>
-      <Typography variant="h5" component="h3">{poi.name}
-      </Typography>
-
-      <Typography variant="h6" component="p">
-        {poi.description}
-       </Typography>
-       <img className={classes.img} alt="complex" src={poi.imageurl}/>
-        <Paper component="ul" className={classes.root}>
-        <Chip icon={<AccessTimeIcon />} label={`${poi.runtime} min.`} />
-        <Chip
-          icon={<MonetizationIcon />}
-          label={`${poi.category.name}`}
-        />
-        <Chip
-          icon={<StarRate />}
-          label={`${poi.vote_average} (${poi.vote_count}`}
-        />
-        <Chip label={`Released: ${poi.release_date}`} />
-      </Paper>
-
+      <Grid container spacing={1}>
+        <Grid item xs={12}>
+          <Typography variant="h5"><em>{poi.name}</em></Typography>
+        </Grid>
+      </Grid>
+      <Grid container spacing={1}>
+        <Grid item>
+          <Typography variant="body1">{poi.description}</Typography>
+        </Grid>
+      </Grid>
+      <Grid container spacing={1} justifyContent="center">
+        <Grid item>
+        <img className={classes.img} src={poi.imageurl}/>
+        </Grid>
+      </Grid>
+      
+      <Grid container spacing={1}>  
+      <Grid item xs={4}>
+          <Paper className={classes.root}>
+            <Typography variant="subtitle1">
+            <em>Short Description:</em><br></br> {poi.descshort} 
+            </Typography>
+          </Paper>
+        </Grid>     
+        <Grid item xs={4}>
+          <Paper className={classes.root}>
+            <Typography variant="subtitle1">
+            <em>Category:</em> {poi.category.name} <br></br>
+            <em>Added By:</em> {poi.contributor.firstName} {poi.contributor.lastName}
+            </Typography>
+          </Paper>
+        </Grid>
+        <Grid item xs={4}>
+          <Paper className={classes.root} >
+            <Typography variant="subtitle1">
+            <em>Latitude:</em> {poi.latitude} <br></br>
+            <em>Longitude:</em> {poi.longitude}
+            </Typography>
+          </Paper>
+        </Grid>
+      </Grid>
+        
+{/*
       <Fab
         color="secondary"
         variant="extended"
@@ -61,8 +82,9 @@ const PoiView = ( props) => {
       >
         <NavigationIcon />
         Reviews
-      </Fab>
-      </>
+      </Fab> */}
+
+  </>
   );
 };
 export default  PoiView ;

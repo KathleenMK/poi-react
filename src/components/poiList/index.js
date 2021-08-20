@@ -18,15 +18,14 @@ const useStyles = makeStyles({
     maxWidth: 100,
   }
 });
-  
-
+ 
 const PoiList = (props) => {
   const classes = useStyles();
   const rows = props.pois;
 
-  // using index as key, not recommended https://reactjs.org/docs/lists-and-keys.html#keys visitied 12Aug21
+  // using index as key, not recommended https://reactjs.org/docs/lists-and-keys.html#keys visited 12Aug21
     // let poiCards = props.poismap((m, index) => (
-      return (
+  return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
@@ -40,32 +39,21 @@ const PoiList = (props) => {
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-             
-            <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
+          <TableRow key={row.name}>
+            <TableCell component="th" scope="row">
               <Link to={`/pois/${row._id}`}>{row.name}</Link>
-              </TableCell>
-              <TableCell align="left">{row.descshort}</TableCell>
-              <TableCell align="right"><img className={classes.img} alt="complex" src={row.imageurl}/></TableCell>
-              <TableCell align="right">{row.contributor.firstName}</TableCell>
-              <TableCell align="right">TBC</TableCell>
-            </TableRow>
-                      ))}
+            </TableCell>
+            <TableCell align="left">{row.descshort}</TableCell>
+            <TableCell align="right"><img className={classes.img} alt="complex" src={row.imageurl}/></TableCell>
+            <TableCell align="right">{row.contributor.firstName}</TableCell>
+            <TableCell align="right">TBC</TableCell>
+          </TableRow>
+          ))}
         </TableBody>
       </Table>
     </TableContainer>
-
-     
-  );
-  //return poiCards;
-  /*
-  return (
-    <div style={{ height: 300, width: '100%' }}>
-      <DataGrid rows={rows2} columns={columns} />
-    </div>
-  );
-  */
-};
+    );
+ };
 
 export default PoiList;
 
