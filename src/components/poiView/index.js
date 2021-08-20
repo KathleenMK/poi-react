@@ -44,7 +44,7 @@ const PoiView = ( props) => {
       </Grid>
       <Grid container spacing={1} justifyContent="center">
         <Grid item>
-        <img className={classes.img} src={poi.imageurl}/>
+        <img className={classes.img} alt="poiimage" src={poi.imageurl}/>
         </Grid>
       </Grid>
       

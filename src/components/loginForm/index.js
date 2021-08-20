@@ -1,18 +1,9 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
-import SearchIcon from "@material-ui/icons/Search";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-import axios from "axios";
 import Button from '@material-ui/core/Button';
-
-const baseurl = "https://lit-hamlet-10675.herokuapp.com";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,10 +38,7 @@ return (
     <>
         <Card className={classes.root}>
             <CardContent>
-            <h2>Login page</h2>
-            <p>You must log in to view the protected pages </p>
-     
-      <form className={classes.root} onSubmit={handleSubmit}>
+        <form className={classes.root} onSubmit={handleSubmit}>
          <TextField
         label="Email"
         variant="filled"

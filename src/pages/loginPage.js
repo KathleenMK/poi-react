@@ -1,23 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { AuthContext } from "../contexts/authContext";
-import { makeStyles } from "@material-ui/core/styles";
-import { TextField } from '@material-ui/core';  //https://material-ui.com/api/text-field/
-//import PrivateRoute from "./privateRoute";
-//import AuthHeader from "./authHeader";
-//import AuthProvider from "./authContext";
-import Button from '@material-ui/core/Button';
 import LoginForm from "../components/loginForm";
 import Grid from "@material-ui/core/Grid";
 
-const useStyles = makeStyles({
-    root: {
-      padding: "20px",
-    },
-  });
-
 const LoginPage = (props) => {
-  const classes = useStyles();
   const context = useContext(AuthContext);
   const [email] = useState('');
   const [password] = useState('');

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { withRouter } from "react-router-dom";
-import { AuthContext } from "./contexts/authContext";
+import { AuthContext } from "../../contexts/authContext";
 
 const BaseAuthHeader = (props) => {
   const context = useContext(AuthContext);
@@ -10,11 +10,13 @@ const BaseAuthHeader = (props) => {
   const { history } = props;
 
   return context.isAuthenticated ? (
-    <p>
+    <>
+        <p>
       Welcome {context.user.email} <button onClick={() => 
         context.signout()
         }>Sign out</button>
     </p>
+    </>
   ) : (
     <p>
       You are not logged in{" "}
