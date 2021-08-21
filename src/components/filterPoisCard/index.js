@@ -9,9 +9,7 @@ import TextField from "@material-ui/core/TextField";
 import SearchIcon from "@material-ui/icons/Search";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import axios from "axios";
-
-const baseurl = "https://lit-hamlet-10675.herokuapp.com";
+import { getCategories } from "../../api/poi-api";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,11 +29,16 @@ export default function FilterMoviesCard(props) {
   const [categories, setCategories] = useState([{_id:'0', name:"All"}])
 
   useEffect(() => {
+    getCategories().then(categorieslist => {
+    setCategories([categories[0],...categorieslist]);
+      });
+    /*
     async function fetchData() {
     const categorieslist = await axios.get(baseurl + '/api/categories');
     setCategories([categories[0],...categorieslist.data]);
      }
     fetchData();
+    */
   });
 
   const handleChange = (e, type, value) => {

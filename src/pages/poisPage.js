@@ -3,17 +3,16 @@ import Header from "../components/headerPoiList";
 import FilterCard from "../components/filterPoisCard";
 import Grid from "@material-ui/core/Grid";
 import PoiList from "../components/poiList";
-import axios from "axios";
-
-const baseurl = "https://lit-hamlet-10675.herokuapp.com";
+import { getPois } from "../api/poi-api.js";
 
 const PoiListPage = (props) => {
-  axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.poi;  // login JWT used in following axios calls
   const [pois, setPois] = useState( [] );
   const [nameFilter, setNameFilter] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("0");
  
   const categoryId = categoryFilter;
+
+  console.log(pois);
   
   let displayedPois = pois
     .filter((m) => {
@@ -30,12 +29,10 @@ const PoiListPage = (props) => {
 
 useEffect(() => {
   async function fetchData() {
-  const poislist = await axios.get(baseurl+'/api/pois');
-  console.log(poislist.data);
-  setPois(poislist.data);
-  const categories = await axios.get(baseurl + '/api/categories');
-  console.log(categories.data);
-  }
+      const poislist = await getPois();
+      console.log(poislist);
+      setPois(poislist);
+   }
 fetchData();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
