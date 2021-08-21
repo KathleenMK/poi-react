@@ -5,8 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import PublicIcon from '@material-ui/icons/Public';
-import AssessmentIcon from '@material-ui/icons/Assessment';
+import { withRouter } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,29 +16,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = (props ) => {
+const Header = ({title, history} ) => {
   const classes = useStyles();
-  const title = props.title
+  //const title = props.title
   return (
     <Paper component="div" className={classes.root}>
-      <PublicIcon color="primary" fontSize="large" />
-      <IconButton
-        aria-label="go back"
-      >
+       <IconButton aria-label="go back" onClick={() => history.goBack()}>
         <ArrowBackIcon color="primary" fontSize="large" />
       </IconButton>
-
-      <Typography variant="h4" component="h3">
+      <Typography variant="h5">
         {title}
       </Typography>
-      <IconButton
-        aria-label="go forward"
-      >
+      <IconButton aria-label="go forward" onClick={() => history.goForward()}>
         <ArrowForwardIcon color="primary" fontSize="large" />
       </IconButton>
-      <AssessmentIcon color="primary" fontSize="large" />
     </Paper>
   );
 };
 
-export default Header;
+export default withRouter(Header);

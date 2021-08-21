@@ -3,9 +3,6 @@ import axios from "axios";
 
 const baseurl = "https://lit-hamlet-10675.herokuapp.com";
 
-
-
-
 export const getPois = async () => {
   axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.poi;  // login JWT used in following axios calls
   const response = await axios.get(baseurl + "/api/pois")

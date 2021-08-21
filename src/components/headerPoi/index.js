@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
+import { withRouter } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,13 +20,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PoiHeader = (props) => {
+const PoiHeader = ({poi, history}) => {
   const classes = useStyles();
-  const poi = props.poi;
+  //const poi = props.poi;
 
   return (
     <Paper component="div" className={classes.root}>
-      <IconButton aria-label="go back">
+      <IconButton aria-label="go back" onClick={() => history.goBack()}>
         <ArrowBackIcon color="primary" fontSize="large" />
       </IconButton>
 
@@ -34,11 +35,11 @@ const PoiHeader = (props) => {
         <a href={poi.homepage}>
         </a>
        </Typography>
-      <IconButton aria-label="go forward">
+      <IconButton aria-label="go forward" onClick={() => history.goForward()}>
         <ArrowForwardIcon color="primary" fontSize="large" />
       </IconButton>
     </Paper>
   );
 };
 
-export default PoiHeader;
+export default withRouter(PoiHeader);
