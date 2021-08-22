@@ -54,15 +54,13 @@ const BaseAuthHeader = (props) => {
         history.push("/pois")
         }/>
         </Tooltip>
-{/*}
+
         <Tooltip title="Add POI" placement="bottom">
         <ControlPointSharpIcon color="primary" fontSize="large" onClick={() => 
         history.push("/addpoi")
         }/>
         </Tooltip>
-      */}
-
-        <Tooltip title="Signout" placement="bottom">
+      <Tooltip title="Signout" placement="bottom">
       <ExitToAppIcon color="primary" fontSize="large" onClick={() => 
         context.signout()
         }/>

@@ -42,3 +42,18 @@ export const deleteOnePoi = async (id) => {
   //console.log(poione);
 return response;
 };
+
+export const addPoi = async (name, descshort, description, latitude, longitude, category) => {
+  //console.log(email,password);
+  const poi = {
+    name: name,
+    descshort: descshort,
+    description: description,
+    latitude: latitude,
+    longitude: longitude,
+    category: category,
+};
+  const response = await axios.post(baseurl+'/api/categories/'+category._id+'/pois', poi);
+  console.log(response);
+  return response;
+};

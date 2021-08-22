@@ -205,5 +205,5 @@ POI/Beach details page, shows full detail of the beach plus currect weather, cli
 - Installed axios using "npm install axios" as per: https://www.freecodecamp.org/news/how-to-use-axios-with-react/
   Made use of axios for api calls and JWT management based on the methods used in creation of the POI Svelte app as per the project: https://github.com/KathleenMK/poi-svelte, specifically: https://github.com/KathleenMK/poi-svelte/blob/master/src/services/poi-service.js
 
-- Updates to the UI based on the components information here: https://material-ui.com/, including Grid, Icon, Tooltip, Paper, Typography, Card Media, Card
+- Updates to the UI based on the components information here: https://material-ui.com/, including Grid, Icon, Tooltip, Paper, Typography, Card Media, Card, Select
 

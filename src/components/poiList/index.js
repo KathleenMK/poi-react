@@ -45,7 +45,7 @@ const PoiList = (props) => {
             <TableCell align="left">INTRO</TableCell>
             <TableCell align="right">IMAGE</TableCell>
             <TableCell align="right">ADDED BY</TableCell>
-            <TableCell align="right">TBC</TableCell>
+            <TableCell align="right"></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

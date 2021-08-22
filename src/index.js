@@ -8,6 +8,7 @@ import AuthHeader from "./components/authHeader";
 import AuthProvider from "./contexts/authContext";
 import PoiListPage from "./pages/poisPage";
 import HomePage from "./pages/homePage";
+import AddPoiPage from "./pages/addPoiPage";
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
         <AuthHeader />
       <Switch>
       <PrivateRoute exact path="/pois" component={PoiListPage} />
+      <PrivateRoute exact path="/addpoi" component={AddPoiPage} />
        <PrivateRoute exact path="/pois/:id" component={PoiViewPage} />
         <Route exact path="/login" component={LoginPage} />
         <Route path="/home" component={HomePage} />
