@@ -12,7 +12,7 @@ const PoiListPage = (props) => {
  
   const categoryId = categoryFilter;
 
-  console.log(pois);
+  //console.log(pois);
   
   let displayedPois = pois
     .filter((m) => {

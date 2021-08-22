@@ -10,12 +10,13 @@ Name: Kathleen McCarthy Kelleher
 ### https://lit-hamlet-10675.herokuapp.com
 ### Git repo here: https://github.com/KathleenMK/poi-web-app
 
-## Features of the app are:
+## Features of the React app are:
 
 -  Login as a user to access further details
 -  View list of points retrieved by the api call
 -  Filter by categories and name
 -  Detailed view of each point, including the current weather, based on the latitude and longitude, using an OpenWeather API implemented within the API service
+- Delete POI from the database (hosted on cloudatlas)
 -  Logout
 
 This React app has been created using Create React App.
@@ -159,11 +160,9 @@ windSpeed: 5.2
 
 ### Component catalogue.
 
+Components as per Storybook: <br>
+
 <img src="https://github.com/KathleenMK/poi-react/blob/main/readme_images/storybook.png" alt="storybook" width="1000"/>
-
-....... Insert a screenshot from the Storybook UI showing your component catalogue. [For the Movies app, hi-light stories relating to new/modified components - see the example screenshot below] .......
-
-![][stories]
 
 ### UI Design.
 

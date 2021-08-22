@@ -19,6 +19,7 @@ const App = () => {
       <PrivateRoute exact path="/pois" component={PoiListPage} />
        <PrivateRoute exact path="/pois/:id" component={PoiViewPage} />
         <Route exact path="/login" component={LoginPage} />
+        <Route path="/home" component={HomePage} />
         <Route path="/" component={HomePage} />
          <Redirect from="*" to="/" />
       </Switch>

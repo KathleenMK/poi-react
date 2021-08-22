@@ -19,7 +19,7 @@ const PoiViewPage = (props) => {
  }
   fetchData();
     // eslint-disable-next-li
-  }, []); //empty dependency array ensures rendering onMount only
+  }, [id]); //empty dependency array ensures rendering onMount only
 
   //Grid detail taken from: https://material-ui.com/components/grid/
   

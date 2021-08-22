@@ -9,6 +9,7 @@ import AccountCircleSharpIcon from '@material-ui/icons/AccountCircleSharp';
 import PublicIcon from '@material-ui/icons/Public';
 import Tooltip from '@material-ui/core/Tooltip';  //https://material-ui.com/components/tooltips/
 import { makeStyles } from "@material-ui/core/styles";
+import ControlPointSharpIcon from '@material-ui/icons/ControlPointSharp';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,7 +46,7 @@ const BaseAuthHeader = (props) => {
         </Grid>
         <Grid item xs={9}>
           <Typography variant="h5"><em>Keep Calm and go to the Beach...</em></Typography>
-          <Typography variant="h6">Welcome {context.user.email}</Typography>
+          <Typography variant="h6">Welcome back {context.user.name}...</Typography>
         </Grid>
         <Grid item xs={2}>
         <Tooltip title="Beaches" placement="bottom">
@@ -53,6 +54,14 @@ const BaseAuthHeader = (props) => {
         history.push("/pois")
         }/>
         </Tooltip>
+{/*}
+        <Tooltip title="Add POI" placement="bottom">
+        <ControlPointSharpIcon color="primary" fontSize="large" onClick={() => 
+        history.push("/addpoi")
+        }/>
+        </Tooltip>
+      */}
+
         <Tooltip title="Signout" placement="bottom">
       <ExitToAppIcon color="primary" fontSize="large" onClick={() => 
         context.signout()
