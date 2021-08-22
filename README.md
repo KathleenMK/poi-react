@@ -1,16 +1,16 @@
 # Assignment - ReactJS app.
 
-Name: Kathleen McCarthy Kelleher
+## Name: Kathleen McCarthy Kelleher
 
 ## Overview.
 
-### A React Application that manages Points of Interest, specifically beaches, based on the:
-### API service deployed at: https://lit-hamlet-10675.herokuapp.com
-### API service Git repo at: https://github.com/KathleenMK/poi-web-app
+A React Application that manages Points of Interest, specifically beaches, based on the: <br>
+API service deployed at: https://lit-hamlet-10675.herokuapp.com <br>
+API service Git repo at: https://github.com/KathleenMK/poi-web-app <br>
 
 ## Features of the React app are:
 
--  Login as a user
+-  Login as a user (sample user email and password: kate@gmail.com, KateKate1; mike@gmail.com, MikeMike1)
 -  View summary list of points retrieved by the api call
 -  Filter by categories and name
 -  Detailed view of each point, including the current weather, based on the latitude and longitude, using an OpenWeather API implemented within the API service
@@ -36,17 +36,12 @@ includes name, description, short description, latitude, longitude, image url an
 ### List of Categories:<br>
 (api call: axios.get("https://lit-hamlet-10675.herokuapp.com/api/categories"))<br>
 includes name and description...<br>
-
-  data: Array(4)
-0: {_id: "6120f34305526100155bfaa2", name: "Munster", description: "Munster", __v: 0}
-1: {_id: "6120f34305526100155bfaa3", name: "Leinster", description: "Leinster", __v: 0}
-2: {_id: "6120f34305526100155bfaa4", name: "Connaught", description: "Connaught", __v: 0}
-3: {_id: "6120f34305526100155bfaa5", name: "Ulster", description: "Ulster", __v: 0}
+<img src="https://github.com/KathleenMK/poi-react/blob/main/readme_images/data_categories.png" alt="categorieslist" width="1000"/>
 
 ### Get One POI:<br>
 (api call: axios.get("https://lit-hamlet-10675.herokuapp.com/api/pois/"+id))<br>
 includes poi data as above plus current weather data...<br>
-<img src="https://github.com/KathleenMK/poi-react/blob/main/readme_images/data_poisone.png" alt="poione" width="1000"/>
+<img src="https://github.com/KathleenMK/poi-react/blob/main/readme_images/data_poione.png" alt="poione" width="1000"/>
 
 
 ## App Design.
@@ -80,20 +75,20 @@ Add new POI/Beach details page: <br>
 
 baseurl = "https://lit-hamlet-10675.herokuapp.com";
 
-+POST (baseurl+'/api/users/authenticate', {email, password}) - authenticates the user, retrieves the JWT details and returns the POI list view
++ POST (baseurl+'/api/users/authenticate', {email, password}) - authenticates the user, retrieves the JWT details and returns the POI list view
 
-+GET (baseurl + "/api/pois") (protected) - returns summary list of all POIs in the data base
++ GET (baseurl + "/api/pois") (protected) - returns summary list of all POIs in the data base
 
-+GET (baseurl + "/api/categories") (protected) - returns list of categories, used in the POI list for filtering and the add POI form for selection
++ GET (baseurl + "/api/categories") (protected) - returns list of categories, used in the POI list for filtering and the add POI form for selection
  
-+GET (baseurl + "/api/pois/"+id) (protected) - returns specific POI detail on the POI View page and it's current weather
++ GET (baseurl + "/api/pois/"+id) (protected) - returns specific POI detail on the POI View page and it's current weather
 
-+DELETE (baseurl + "/api/pois/"+id) (protected) - deletes specific POI from the database
++ DELETE (baseurl + "/api/pois/"+id) (protected) - deletes specific POI from the database
 
-+POST (baseurl+'/api/categories/'+category._id+'/pois', poi) (protected) - saves new POI details to the database
++ POST (baseurl+'/api/categories/'+category._id+'/pois', poi) (protected) - saves new POI details to the database
   
 
-## Independent learning (If relevant).
+## Independent learning.
 
 - Installed storybook using "npx -p @storybook/cli sb init", based on the article: https://fathomtech.io/blog/create-a-react-component-library-using-create-react-app/
 
@@ -102,5 +97,5 @@ baseurl = "https://lit-hamlet-10675.herokuapp.com";
 - Installed axios using "npm install axios" as per: https://www.freecodecamp.org/news/how-to-use-axios-with-react/
   Made use of axios for api calls and JWT management based on the methods used in creation of the POI Svelte app as per the project: https://github.com/KathleenMK/poi-svelte, specifically: https://github.com/KathleenMK/poi-svelte/blob/master/src/services/poi-service.js
 
-- Updates to the UI based on the components information here: https://material-ui.com/, including Grid, Icon, Tooltip, Paper, Typography, Card Media, Card, Select
+- Updates to the UI based on the components information here: https://material-ui.com/, including Grid, Icon, Tooltip, Paper, Typography, Card Media, Card, Select, Tables
 
