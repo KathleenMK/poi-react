@@ -42,8 +42,7 @@ const AddPoiPage = (props) => {
   return (
     
     <>
-    This is the add POI page
-     <Card className={classes.root}>
+    <Card className={classes.root}>
     <CardMedia
        component="img"
        alt="tramore2"
