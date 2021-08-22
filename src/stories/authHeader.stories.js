@@ -1,20 +1,18 @@
 import React from "react";
 import AuthHeader from "../components/authHeader";
 import { MemoryRouter } from "react-router";
-
+import AuthProvider from "../contexts/authContext";
 
 export default {
   title: "AuthHeader",
   component: AuthHeader,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
-    //(Story) => <MoviesContextProvider>{Story()}</MoviesContextProvider>,
+    (Story) => <AuthProvider>{Story()}</AuthProvider>,
   ],
 };
-
-const isAuthenticated = true;
   
 export const Basic = () => {
-  return <AuthHeader/>;
+  return <AuthProvider><AuthHeader/></AuthProvider>;
 };
 Basic.storyName = "Default";

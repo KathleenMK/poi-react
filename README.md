@@ -159,7 +159,7 @@ windSpeed: 5.2
 
 ### Component catalogue.
 
-<img src="https://github.com/KathleenMK/poi-react/blob/main/readme_images/storybook.png" alt="storybook" width="350"/>
+<img src="https://github.com/KathleenMK/poi-react/blob/main/readme_images/storybook.png" alt="storybook" width="1000"/>
 
 ....... Insert a screenshot from the Storybook UI showing your component catalogue. [For the Movies app, hi-light stories relating to new/modified components - see the example screenshot below] .......
 
@@ -167,17 +167,17 @@ windSpeed: 5.2
 
 ### UI Design.
 
-Home page, clicking login icon on top right navigates to the login page:
-<img src="https://github.com/KathleenMK/poi-react/blob/main/readme_images/homepage.png" alt="homepage" width="350"/>
+Home page, clicking login icon on top right navigates to the login page: <br>
+<img src="https://github.com/KathleenMK/poi-react/blob/main/readme_images/homepage.png" alt="homepage" width="1000"/>
 
-Login page, with login form, upon submit, if authentication is successful navigates to the pois page, clicking top left icon navigates to the home page:
-<img src="https://github.com/KathleenMK/poi-react/blob/main/readme_images/loginpage.png" alt="loginpage" width="350"/>
+Login page, with login form, upon submit, if authentication is successful navigates to the pois page, clicking top left icon navigates to the home page: <br>
+<img src="https://github.com/KathleenMK/poi-react/blob/main/readme_images/loginpage.png" alt="loginpage" width="1000"/>
 
-POIs/Beaches page, lists summary details for beaches in the data base, search box and dropdown input filters those shown, clicking the top right icon signs out of the app:
-<img src="https://github.com/KathleenMK/poi-react/blob/main/readme_images/poispage.png" alt="poispage" width="350"/>
+POIs/Beaches page, lists summary details for beaches in the data base, search box and dropdown input filters those shown, clicking the top right icon signs out of the app: <br>
+<img src="https://github.com/KathleenMK/poi-react/blob/main/readme_images/poispage.png" alt="poispage" width="10000"/>
 
-POI/Beach details page, shows full detail of the beach plus currect weather, clicking the assessment icon in the top right brings back to the list page:
-<img src="https://github.com/KathleenMK/poi-react/blob/main/readme_images/poipage.png" alt="poipage" width="350"/>
+POI/Beach details page, shows full detail of the beach plus currect weather, clicking the assessment icon in the top right brings back to the list page: <br>
+<img src="https://github.com/KathleenMK/poi-react/blob/main/readme_images/poipage.png" alt="poipage" width="1000"/>
 
 ### Routing.
 
