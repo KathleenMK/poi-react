@@ -39,7 +39,7 @@ export default function FilterMoviesCard(props) {
      }
     fetchData();
     */
-  });
+  }, []);
 
   const handleChange = (e, type, value) => {
     e.preventDefault()
